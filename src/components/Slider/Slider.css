@@ -31,7 +31,8 @@
 .slider-content {
   width: 50%;
   color: #333;
-  padding-right: 20px; /* Add some padding to create space between the text and image */
+  padding-right: 10px; /* Add some padding to create space between the text and image */
+  text-align: center;
 }
 
 .slider-content h1 {

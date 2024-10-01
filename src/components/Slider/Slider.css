@@ -1,0 +1,209 @@
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.slider-slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(40, 117, 217, 0.2);
+  opacity: 0;
+  transition: all 1s ease;
+  display: flex; /* Use flex to align content */
+  justify-content: space-between; /* Distribute content between text and image */
+  align-items: center; /* Vertically center content */
+  padding: 20px;
+}
+
+.slider-slide.active {
+  left: 0;
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+/* Text content on the left */
+.slider-content {
+  width: 50%;
+  color: #333;
+  padding-right: 20px; /* Add some padding to create space between the text and image */
+}
+
+.slider-content h1 {
+  font-size: 48px;
+  margin: 0 0 10px 0;
+  line-height: 120%;
+}
+
+.slider-content p {
+  font-size: 18px;
+  margin: 30px 0 30px 0;
+}
+
+.slider-button {
+  display: inline-block;
+  background-color: #7000fe;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.slider-button:hover {
+  background-color: #fff;
+  color: #7000fe;
+}
+
+/* Image on the right */
+.slider-image-container {
+  /* width: 50%; Take up half the width */
+  display: flex;
+  justify-content: center;
+  z-index: 2; /* Set z-index higher than the shapes */
+  position: relative; /* Ensure z-index takes effect */
+}
+
+.slider-image-container img {
+  width: 55%; /* Adjust size of the image */
+}
+
+/* Floating Geometrical Shapes */
+.floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1; /* Set z-index lower than the image */
+}
+
+.shape {
+  position: absolute;
+}
+
+.shape-circle {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 10%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, rgba(160,158,199,1) 0%, rgba(75,75,233,1) 19%, rgba(93,162,252,1) 100%);
+  animation: float 6s infinite ease-in-out;
+}
+
+.shape-circle-2 {
+  width: 30px;
+  height: 30px;
+  top: 60%;
+  left: 50%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, rgba(160,158,199,1) 0%, rgba(75,75,233,1) 19%, rgba(93,162,252,1) 100%); 
+  animation: float 7s infinite ease-in-out;
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid rgba(75,75,233,0.7);
+  top: 5%;
+  left: 50%;
+  animation: floatTriangle 8s infinite ease-in-out;
+}
+
+.shape-triangle-2 {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid rgba(75,75,233,0.7);
+  top: 70%;
+  left: 10%;
+  animation: floatTriangle 9s infinite ease-in-out;
+}
+
+.shape-zoom-in-out-circle-1 {
+  width: 280px;
+  height: 280px;
+  top: 25%;
+  left: 60%;
+  border-radius: 50%;
+  background: rgba(99, 215, 253, 0.5); 
+  animation: zoom-in-zoom-out 8s ease infinite;
+}
+
+.shape-zoom-in-out-circle-2 {
+  width: 180px;
+  height: 180px;
+  top: -10%;
+  left: 65%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4); 
+  animation: zoom-in-zoom-out 8s ease infinite;
+}
+
+.shape-zoom-in-out-circle-3 {
+  width: 220px;
+  height: 220px;
+  top: 50%;
+  left: 85%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5); 
+  animation: zoom-in-zoom-out 8s ease infinite;
+}
+
+/* Floating Animations */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes floatTriangle {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-20px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes zoom-in-zoom-out {
+  0% { scale: 100%; }
+  50% { scale: 150%; }
+  100% { scale: 130%; }
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+  .slider-content h1 {
+    font-size: 32px;
+  }
+
+  .slider-content p {
+    font-size: 16px;
+  }
+
+  .slider-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .slider-image-container img {
+    width: 100%; /* Full width for smaller devices */
+  }
+
+  .shape-circle,
+  .shape-circle-2,
+  .shape-triangle-2,
+  .shape-triangle {
+    display: none;
+  }
+
+}

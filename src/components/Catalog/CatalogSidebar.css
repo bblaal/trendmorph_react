@@ -1,0 +1,72 @@
+.catalog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out; /* Smooth transition effect */
+    z-index: 100; /* Ensure it's on top */
+}
+
+.card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+    display: flex;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #7000FE;
+    border-radius: 25px;
+}
+
+.category-filter select,
+.price-filter input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #7000FE;
+    border-radius: 25px;
+}
+
+.price-range {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Faded effect */
+    backdrop-filter: blur(5px); /* Blurred background */
+    z-index: 99; /* Below the sidebar but above the rest of the content */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .catalog-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #ffffff;
+        transform: translateX(-100%); /* Hidden by default, off-screen */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for overlay effect */
+        transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Custom animation for smooth bounce-in */
+        z-index: 100; /* On top of the faded overlay */
+    }
+
+    .catalog-sidebar.active {
+        transform: translateX(0); /* Slide in from the left */
+    }
+}

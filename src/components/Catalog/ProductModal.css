@@ -1,0 +1,215 @@
+/* Modal Backdrop */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Modal Content */
+.modal-content {
+    width: 80%;
+    max-width: 900px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    z-index: 1010; /* Ensure it's on top */
+    overflow: auto; /* Enable scrolling within the modal */
+    max-height: 90vh; /* Limit height to viewport */
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1020; /* Ensure it's on top */
+    color: black; /* Visible close button */
+}
+
+/* Modal Body with 50% width sections */
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+/* Left Section: Image Slider */
+.modal-left {
+    width: 50%;
+    padding: 20px;
+}
+
+/* Slider Image Style */
+.slider-image {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+}
+
+/* Right Section: Product Details */
+.modal-right {
+    width: 50%;
+    padding: 20px;
+    overflow-y: auto; /* Scrollable content */
+}
+
+/* Product Details */
+.product-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-details .price {
+    font-size: 20px;
+    color: #7000FE;
+    margin-bottom: 10px;
+}
+
+.product-details .tags,
+.product-details .quality {
+    margin-bottom: 15px;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+/* Color and Size Selections */
+.color-selection, .size-selection, .quantity-selection {
+    margin-bottom: 20px;
+}
+
+.color-selection h4, .size-selection h4, .quantity-selection h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    
+}
+
+/* Large selection buttons for color and size */
+.color-selection label, .size-selection label {
+    display: inline-block;
+    padding: 15px 20px;
+    background-color: #f0f0f0;
+    color: #000;
+    border-radius: 50px;
+    margin-right: 10px;
+    font-size: 14px;
+    /* font-weight: bold; */
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+    text-align: center;
+}
+
+/* Hover effect for the selection buttons */
+.color-selection label:hover, .size-selection label:hover {
+    background-color: #555;
+    color: white;
+    border: 1px solid #333;
+    
+}
+
+/* Change the appearance when input is checked (selected) */
+.color-selection input[type="radio"]:checked + label, 
+.size-selection input[type="radio"]:checked + label {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* Hide the radio inputs */
+.color-selection input[type="radio"], .size-selection input[type="radio"] {
+    display: none;
+}
+
+/* Responsive adjustments for the selection buttons */
+@media (max-width: 768px) {
+    .color-selection label, .size-selection label {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}
+
+
+/* Quantity Controls */
+.quantity-selection button {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.quantity-selection span {
+    font-size: 18px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.wishlist-btn, .cart-btn, .buy-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.wishlist-btn {
+    background-color: #ff4081;
+    color: white;
+}
+
+.cart-btn {
+    background-color: #7000FE;
+    color: white;
+}
+
+.buy-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        flex-direction: column;
+        max-height: 95vh; /* Adjust for smaller screens */
+    }
+
+    .modal-body {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .modal-left, .modal-right {
+        width: 100%;
+    }
+
+    .slider-image {
+        height: 200px;
+    }
+
+    .close-btn {
+        font-size: 28px;
+        top: 15px;
+        right: 15px;
+    }
+}

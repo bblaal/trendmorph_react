@@ -1,0 +1,31 @@
+.product-catalog-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar-section {
+    width: 20%;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .sidebar-section {
+        width: 100%;
+    }
+
+    .sidebar-section.active {
+        display: block; /* Sidebar visible when toggled */
+    }
+}
+
+.main-catalog-section {
+    width: 80%;
+    padding: 20px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .main-catalog-section {
+        width: 100%;
+    }
+}

@@ -78,6 +78,8 @@ const Header = () => {
     setCartItems(updatedCart);
   };
 
+  const totalCartItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className="header-container">
       {/* Hamburger Menu Icon for Mobile */}
@@ -157,7 +159,10 @@ const Header = () => {
 
             {loggedIn && <CiUser className="icon" title="Account" />}
             {loggedIn && <CiHeart className="icon" title="Wishlist" />}
-            <CiShoppingCart className="icon" title="Cart" onClick={() => setCartOpen(!cartOpen)} />
+            <div className="cart-icon-container">
+              <CiShoppingCart className="icon" title="Cart" onClick={() => setCartOpen(!cartOpen)} />
+              {totalCartItems > 0 && <span className="cart-badge">{totalCartItems}</span>}
+            </div>
             {cartOpen && (
               <CartTooltip
                 cartItems={cartItems}

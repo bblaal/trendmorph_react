@@ -45,7 +45,7 @@ const ProductModal = ({ product, onClose }) => {
                     <div className="modal-right">
                         <div className="product-details">
                             <h2>{product.name}</h2>
-                            <p className="price">$29.99</p>
+                            <p className="price">₹29.99</p>
                             <div className="tags">
                                 <p> 220 GSM, 100% Cotton, Super Combed, Pre Shrunk, Bio Washed, Collar and Cuff, Unisex Regular Fit</p>
                             </div>

@@ -117,6 +117,11 @@ ul li:hover {
   top: 4px;
 }
 
+.login-icon-container {
+  position: relative;
+  top: 4px;
+}
+
 .cart-badge {
   position: absolute;
   top: -13px;
